@@ -3,7 +3,7 @@
 from fastapi import Depends
 
 from src.application.interfaces.llm_gateway import LLMGateway
-from src.application.use_cases.hello_agent import HelloAgentUseCase
+from src.application.use_cases.chat import ChatUseCase
 from src.infrastructure.llm.fake_llm_gateway import FakeLLMGateway
 
 
@@ -12,8 +12,8 @@ def get_llm_gateway() -> LLMGateway:
     return FakeLLMGateway()
 
 
-def get_hello_agent_use_case(
+def get_chat_use_case(
     llm_gateway: LLMGateway = Depends(get_llm_gateway),
-) -> HelloAgentUseCase:
-    """Hello Agent use case with injected LLMGateway."""
-    return HelloAgentUseCase(llm_gateway=llm_gateway)
+) -> ChatUseCase:
+    """Chat use case with injected LLMGateway. RAG (LlamaIndex) will be wired here later."""
+    return ChatUseCase(llm_gateway=llm_gateway)

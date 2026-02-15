@@ -1,5 +1,5 @@
 """Pydantic request/response schemas for API."""
 
-from src.interfaces.schemas.agent import HelloAgentRequest, HelloAgentResponse
+from src.interfaces.schemas.chat import ChatRequest, ChatResponseSchema
 
-__all__ = ["HelloAgentRequest", "HelloAgentResponse"]
+__all__ = ["ChatRequest", "ChatResponseSchema"]

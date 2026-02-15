@@ -1,4 +1,4 @@
-"""LLM service implementations (LangChain/LangGraph compatible)."""
+"""LLM service implementations (LlamaIndex / RAG compatible)."""
 
 from src.infrastructure.llm.fake_llm_gateway import FakeLLMGateway
 

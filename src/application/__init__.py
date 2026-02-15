@@ -1,6 +1,5 @@
-"""Application layer: use cases, agent flows (LangGraph), and ports (interfaces)."""
+"""Application layer: use cases and ports (interfaces). RAG with LlamaIndex will extend this."""
 
-from src.application.flows.hello_agent import create_hello_agent_graph
-from src.application.use_cases.hello_agent import HelloAgentUseCase
+from src.application.use_cases.chat import ChatUseCase
 
-__all__ = ["create_hello_agent_graph", "HelloAgentUseCase"]
+__all__ = ["ChatUseCase"]
