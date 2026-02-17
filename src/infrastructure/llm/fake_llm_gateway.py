@@ -1,4 +1,4 @@
-"""Fake LLM gateway for Hello Agent (no API key). Replace with LangChain ChatOpenAI in production."""
+"""Fake LLM gateway for development (no API key). Replace with real LLM when using RAG/LlamaIndex."""
 
 from src.application.interfaces.llm_gateway import LLMGateway
 
@@ -6,20 +6,9 @@ from src.application.interfaces.llm_gateway import LLMGateway
 class FakeLLMGateway(LLMGateway):
     """
     In-memory implementation for development/demo.
-    For production, implement LLMGateway using langchain_community.chat_models.ChatOpenAI
-    or similar and inject API key via settings.
+    For production, implement LLMGateway with OpenAI/OpenAI-compatible API
+    and inject via dependencies.
     """
 
     def invoke(self, prompt: str, **kwargs: object) -> str:
-        # Simple greeting logic so Hello Agent works without an LLM
-        if "greeting" in prompt.lower() or "name" in prompt.lower():
-            name = "World"
-            parts = prompt.replace(".", " ").replace(":", " ").split()
-            skip = ("generate", "short", "friendly", "greeting", "for", "the", "name", "reply", "with", "only", "no", "quotes")
-            for part in parts:
-                word = part.strip(".,;").strip()
-                if word and word.isalpha() and word.lower() not in skip:
-                    name = word
-                    break
-            return f"Hello, {name}!"
-        return "Hello from Agent!"
+        return f"[Demo] Alındı: {prompt[:100]}{'...' if len(prompt) > 100 else ''}. RAG (LlamaIndex) bağlandığında gerçek yanıt verilecek."

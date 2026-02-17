@@ -1,1 +1,1 @@
-"""ChatBot with RAG - Agentic RAG with FastAPI and LangGraph (Clean Architecture)."""
+"""ChatBot with RAG - FastAPI + LlamaIndex (Clean Architecture)."""

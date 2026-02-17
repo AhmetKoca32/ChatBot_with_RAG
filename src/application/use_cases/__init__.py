@@ -1,5 +1,5 @@
 """Application use cases."""
 
-from src.application.use_cases.hello_agent import HelloAgentUseCase
+from src.application.use_cases.chat import ChatUseCase
 
-__all__ = ["HelloAgentUseCase"]
+__all__ = ["ChatUseCase"]

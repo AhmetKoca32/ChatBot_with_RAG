@@ -1,4 +1,4 @@
-"""Port: LLM gateway - abstract interface for LangChain/LangGraph compatible LLM."""
+"""Port: LLM gateway - abstract interface for LLM (e.g. OpenAI, used with LlamaIndex RAG)."""
 
 from abc import ABC, abstractmethod
 

@@ -1,12 +1,12 @@
 # ChatBot with RAG
 
-Python tabanlı, FastAPI ve LangGraph kullanan **Agentic RAG** projesi. Clean Architecture prensiplerine uygun yapıdadır.
+Python tabanlı, FastAPI kullanan **RAG chatbot** projesi. LlamaIndex ile RAG eklenecek; agent/LangGraph yok. Clean Architecture prensiplerine uygun.
 
 ## Proje Yapısı
 
-- **domain/** – Entity'ler, modeller ve AI’dan bağımsız iş mantığı
-- **application/** – Use-case’ler, LangGraph akışları ve port (interface) tanımları
-- **infrastructure/** – Vector DB, LLM servisleri, Tool’lar (Search, PDF parser vb.)
+- **domain/** – Entity'ler, modeller (AI’dan bağımsız)
+- **application/** – Use-case’ler ve port (interface) tanımları
+- **infrastructure/** – LLM, Vector DB (LlamaIndex), PDF/doküman (ileride)
 - **interfaces/** – FastAPI rotaları, Pydantic Request/Response şemaları
 
 Bağımlılık yönetimi için Dependency Injection (FastAPI `Depends`) kullanılır.
@@ -27,9 +27,23 @@ uvicorn main:app --reload
 ```
 
 - **Health:** `GET http://localhost:8000/health`
-- **Hello Agent:** `POST http://localhost:8000/agent/hello`  
-  Body: `{"message": "Ahmet"}` → Agent selamlama döner.
+- **Chat:** `POST http://localhost:8000/chat/`  
+  Body: `{"message": "Merhaba"}` → RAG ile zenginleştirilmiş yanıt ve `sources` döner.
 
-## Kullanım
+## Doküman indexleme
 
-- `POST /agent/hello`: Örnek “Hello Agent” akışı (LangGraph). İsteğe bağlı `message` ile isim gönderilir; yanıt Pydantic ile validate edilir.
+RAG index’ini güncellemek için (proje kökünden):
+
+```bash
+python scripts/index_docs.py
+```
+
+Varsayılan dizin: `data/documents`. Farklı bir dizin için:
+
+```bash
+python scripts/index_docs.py path/to/dosyalar
+```
+
+## Sonraki Adım
+
+LlamaIndex eklenerek spor salonu PDF’leri indexlenip RAG sorguları bu yapı üzerinden verilecek.

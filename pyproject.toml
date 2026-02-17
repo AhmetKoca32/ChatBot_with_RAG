@@ -5,15 +5,23 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "chatbot-with-rag"
 version = "0.1.0"
-description = "Agentic RAG with FastAPI and LangGraph (Clean Architecture)"
+description = "RAG chatbot with LlamaIndex, Chroma, DeepSeek (Clean Architecture)"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.32.0",
     "pydantic>=2.9.0",
-    "langgraph>=0.2.0",
-    "langchain-core>=0.3.0",
+    "python-dotenv>=1.0.0",
+    # LlamaIndex + RAG
+    "llama-index-core>=0.11.0",
+    "llama-index-embeddings-huggingface>=0.3.0",
+    "llama-index-vector-stores-chroma>=0.2.0",
+    "chromadb>=0.4.0",
+    "sentence-transformers>=2.2.0",
+    "pypdf>=4.0.0",
+    # LLM (DeepSeek = OpenAI-compatible API)
+    "openai>=1.0.0",
 ]
 
 [project.optional-dependencies]
