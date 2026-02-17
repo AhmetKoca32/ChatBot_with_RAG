@@ -28,7 +28,21 @@ uvicorn main:app --reload
 
 - **Health:** `GET http://localhost:8000/health`
 - **Chat:** `POST http://localhost:8000/chat/`  
-  Body: `{"message": "Merhaba"}` → Yanıt döner (RAG bağlanınca LlamaIndex ile zenginleşecek).
+  Body: `{"message": "Merhaba"}` → RAG ile zenginleştirilmiş yanıt ve `sources` döner.
+
+## Doküman indexleme
+
+RAG index’ini güncellemek için (proje kökünden):
+
+```bash
+python scripts/index_docs.py
+```
+
+Varsayılan dizin: `data/documents`. Farklı bir dizin için:
+
+```bash
+python scripts/index_docs.py path/to/dosyalar
+```
 
 ## Sonraki Adım
 

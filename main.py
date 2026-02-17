@@ -5,6 +5,10 @@ Run: uvicorn main:app --reload
 
 from contextlib import asynccontextmanager
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from fastapi import FastAPI
 
 from src.interfaces.api import chat_router

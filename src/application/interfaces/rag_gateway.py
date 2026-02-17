@@ -30,3 +30,10 @@ class RAGGateway(ABC):
         Returns number of chunks indexed.
         """
         ...
+
+    def get_doc_start_chunks(self) -> list[RetrievedChunk]:
+        """
+        Her dokümanın başındaki chunk'ları döndür (index'te doc_start=1 olanlar).
+        Optional: default returns [] if not implemented.
+        """
+        return []
