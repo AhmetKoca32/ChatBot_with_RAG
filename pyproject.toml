@@ -22,6 +22,9 @@ dependencies = [
     "pypdf>=4.0.0",
     # LLM (DeepSeek = OpenAI-compatible API)
     "openai>=1.0.0",
+    # Frontend (Streamlit)
+    "streamlit>=1.28.0",
+    "httpx>=0.25.0",
 ]
 
 [project.optional-dependencies]
